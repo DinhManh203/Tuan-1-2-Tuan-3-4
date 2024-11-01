@@ -1,0 +1,205 @@
+.title_h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+/* Popup */
+.popup {
+    display: none;  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 300px;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.popup button {
+    width: 30%;
+    padding: 8px;
+    background-color: #c0c0c0;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: auto;
+    display: block;
+}
+
+.box_popup {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group Styles */
+.form-group {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-group input {
+    flex: 2;
+    padding: 8px;
+}
+
+/* Notification Popup */
+.notification-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 300px;
+}
+
+.notification-popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.notification-popup button {
+    padding: 8px;
+    background-color: #c0c0c0;
+    color: #000;
+    border: 1px solid #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.pagination strong {
+    margin: 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #000;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+.notification-popup {
+    display: none; /* Ẩn theo mặc định */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.pagination a {
+    color: black;
+    text-decoration: none; 
+    padding: 8px 16px; 
+    margin: 0 4px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    transition: background-color 0.3s;
+}
+
+.pagination a.active {
+    background-color: black; 
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0; 
+}
