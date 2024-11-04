@@ -7,10 +7,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Cài đặt biến phân trang
-$limit = 5; // Số người dùng tối đa hiển thị mỗi trang
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Lấy trang hiện tại từ GET, mặc định là 1
-$offset = ($page - 1) * $limit; // Tính toán offset
+$limit = 5;
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
 
 // Lấy tổng số vai trò để tính toán số trang
 $totalQuery = "SELECT COUNT(*) FROM mor_role";
@@ -18,7 +17,6 @@ $totalResult = $conn->query($totalQuery);
 $totalCount = $totalResult->fetchColumn();
 $totalPages = ceil($totalCount / $limit);
 
-// Cập nhật truy vấn để lấy dữ liệu người dùng với phân trang
 $query = "SELECT * FROM mor_role LIMIT ? OFFSET ?";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(1, $limit, PDO::PARAM_INT);
@@ -93,7 +91,7 @@ $stmt->execute();
 
     <!-- Popup thông báo -->
     <div class="notification-popup" id="notificationPopup" style="display:none;">
-        <h2 id="notificationTitle"></h2>
+        <h3 id="notificationTitle"></h3>
         <p><strong>Result:</strong></p>
         <p class="name_p">Name: <span id="notificationName"></span></p>
         <p>Description: <span id="notificationDescription"></span></p>
@@ -169,7 +167,7 @@ $stmt->execute();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     closePopup();
-                    showNotification(id ? "Update role successful!" : "Add new role successful!", name, description);
+                    showNotification(id ? "Update role successful!" : "Add new role successful !!!!", name, description);
                     setTimeout(() => {
                         location.reload(); // Tải lại trang để cập nhật danh sách vai trò
                     }, 2000); // Delay 2 giây

@@ -129,7 +129,7 @@ $totalPages = ceil($totalUsers / $limit); // Tổng số trang
 
     <!-- Popup thông báo -->
     <div class="notification-popup" id="notificationPopup" style="display:none;">
-        <h2 id="notificationTitle"></h2>
+        <h3 id="notificationTitle"></h3>
         <p><strong>Result:</strong></p>
         <p class="name_p">Name: <span id="notificationName"></span></p>
         <p>Description: <span id="notificationDescription"></span></p>
@@ -193,29 +193,34 @@ $totalPages = ceil($totalUsers / $limit); // Tổng số trang
 
         // Xử lý gửi dữ liệu từ form
         function submitForm() {
-            var id = document.getElementById("userId").value;
-            var name = document.getElementById("name").value;
-            var description = document.getElementById("description").value;
+    var id = document.getElementById("userId").value;
+    var name = document.getElementById("name").value;
+    var description = document.getElementById("description").value;
 
-            var xhr = new XMLHttpRequest();
-            var url = id ? '../handle_user/update.php' : '../handle_user/add.php'; // Chỉnh sửa đường dẫn
+    var xhr = new XMLHttpRequest();
+    var url = id ? '../handle_user/update.php' : '../handle_user/add.php'; // Chọn đúng file để xử lý
 
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onload = function () {
-                if (this.status == 200) {
-                    showNotification("Success", name, description);
-                    setTimeout(function() {
-                        window.location.reload(); // Tải lại trang
-                    }, 3000); // Thời gian trước khi tải lại trang
-                } else {
-                    alert("Error occurred.");
-                }
-            };
-
-            xhr.send("id=" + id + "&name=" + encodeURIComponent(name) + "&description=" + encodeURIComponent(description));
-            closePopup();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onload = function () {
+        if (this.status == 200) {
+            if (id) {
+                showNotification("Update user successful !!!", name, description);
+            } else {
+                showNotification("Add new user successful !!!", name, description);
+            }
+            setTimeout(function() {
+                window.location.reload(); // Tải lại trang
+            }, 3000); // Thời gian trước khi tải lại trang
+        } else {
+            alert("Error occurred.");
         }
+    };
+
+    xhr.send("id=" + id + "&name=" + encodeURIComponent(name) + "&description=" + encodeURIComponent(description));
+    closePopup();
+}
+
 
         // Xác nhận xóa người dùng
         function deleteUser(id, name, description) {
@@ -237,7 +242,7 @@ $totalPages = ceil($totalUsers / $limit); // Tổng số trang
 
             xhr.onload = function () {
                 if (this.status == 200) {
-                    showNotification("Deleted", userToDelete.name, userToDelete.description);
+                    showNotification("Deleted user successful !!!", userToDelete.name, userToDelete.description);
                     setTimeout(function() {
                         window.location.reload(); // Tải lại trang
                     }, 3000); // Thời gian trước khi tải lại trang
