@@ -6,11 +6,11 @@ This project is part of a course/application for learning and developing program
 
 1. **Tuan 1-2**
     - Description of the lessons and projects in week 1 and 2.
-    - Technologies used: (e.g., Python, HTML, CSS, JavaScript).
+    - Technologies used: (Python).
   
 2. **Tuan 3-4**
     - Description of the lessons and projects in week 3 and 4.
-    - Technologies used: (e.g., React, Node.js, Express).
+    - Technologies used: (HTML, CSS, JS, PHP, MySQL).
   
 ## Installation
 
